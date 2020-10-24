@@ -8,19 +8,20 @@ import { PokeDetail, Pokemon } from '../pokemon';
   selector: 'app-my-component',
   templateUrl: './my-component.component.html',
   styleUrls: ['./my-component.component.css'],
-  providers:[PokeAPIServiceService]
+  providers: [PokeAPIServiceService],
 })
 export class MyComponentComponent implements OnInit {
-
-  id:string ='';
-  selectedPokeId : string;
-  searchPokeName  = '';
-  pokes : Pokemon[] = [];
-  pokeDetail :PokeDetail;
-  myDate : Date;
+  id: string = '';
+  selectedPokeId: string;
+  searchPokeName = '';
+  pokes: Pokemon[] = [];
+  pokeDetail: PokeDetail;
+  myDate: Date;
   checked = true;
-  constructor(private pokeService : PokeAPIServiceService, 
-    private pokeShareInfoService :PokeShareInfoService)  { 
+  constructor(
+    private pokeService: PokeAPIServiceService,
+    private pokeShareInfoService: PokeShareInfoService
+  ) {
     // this.pokes.push(new Pokemon('1','Bulbizarre'));
     // this.pokes.push(new Pokemon('2','Herbizarre'));
     // this.pokes.push(new Pokemon('3','Florizarre'));
@@ -31,19 +32,18 @@ export class MyComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pokeService.getPokemons().subscribe((data)=>{
-
-      data.results.forEach((e, index)=>{
-      this.pokes.push( new Pokemon('' + index, e.name,e.url));
+    this.pokeService.getPokemons().subscribe((data) => {
+      data.results.forEach((e, index) => {
+        this.pokes.push(new Pokemon('' + index, e.name, e.url));
       });
-    }
-    );
+    });
   }
-  go(){
+  go() {
     this.pokeShareInfoService.setValue(this.selectedPokeId);
-    if(this.selectedPokeId != ''){
-      this.pokeService.getPokemonsInfo(this.selectedPokeId).subscribe((data) => this.pokeDetail = data);
-    };
-
-}
+    if (this.selectedPokeId !== '') {
+      this.pokeService
+        .getPokemonsInfo(this.selectedPokeId)
+        .subscribe((data) => (this.pokeDetail = data));
+    }
+  }
 }

@@ -1,4 +1,26 @@
-# Pokdemo
+# TP Angular n°1 :
+
+Auteur: Steven Tanguy
+Formation: Master 2 CCN
+
+---
+
+Objectif:
+Le but de ce Tp est de comprendre le principe de component et de service avec angular. A traver une les instruction du sujet il fallait créer un pokedex en allant chercher les infomations des pokemons dans http://pokeapi.co/ .
+
+Lancement de l'application:  
+Il faut en ligne de commande lancer le serveur "ng serve" et ensuite allez sur http://localhost:4200/.
+
+Réalisation:
+On retouve un composant qui est my-component : qui a une methode ngOnInit qui va à l'initialisation remplir un tableau de pekemon.
+Et la methode go() qui permet de rechercher un pokemon.
+
+Ensuite il y a le service qui est le fichier poke-apiservice.service.ts.
+Et le Pipe quiest le fichier filter-pokemon--pipe.pipe.ts qui permet de filtrer des pokemons
+
+---
+
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
 
